@@ -11,14 +11,17 @@ Description: This program will use functions and arrays to ask the user for seve
 
 using namespace std;
 
-void getNums(float array[],int size);
 float getAverage(float array[],int size); 
 
 int main()
 {
 float nums[7];
 cout << "This program will now ask you to write 7 numbers.\n";
-getNums(nums,7);
+for(int i = 0;i < 7;i++)
+    {
+        cout << "Give the number of array index  [" << i << "]: ";
+        cin >> nums[i];
+    }
 cout << "\nWe will now give you the average of your numbers\n";
 cout << "\nPRESS ANY KEY TO CONTINUE";
 getch();
@@ -27,22 +30,13 @@ cout << "The Average of your seven numbers is: " << getAverage(nums,7);
 return 0;
 }
 
-void getNums(float array[],int size)
-{
-    for(int i = 0;i < size;i++)
-    {
-        cout << "Give the number of array index  [" << i << "]: ";
-        cin >> array[i];
-    }
-}
-
 float getAverage(float array[],int size)
 {
-    float average = 0;
+    float sum = 0;
     for(int i = 0;i < size;i++)
     {
-       average = average + array[i];
+       sum = sum + array[i];
     }
-    average = average / size;
-    return average;
+
+    return sum/size;  
 }
